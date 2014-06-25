@@ -326,8 +326,8 @@ export class AwaitExpression extends ParseTree {
   }
 }
 
-var BINARY_OPERATOR = ParseTreeType.BINARY_OPERATOR;
-export class BinaryOperator extends ParseTree {
+var BINARY_EXPRESSION = ParseTreeType.BINARY_EXPRESSION;
+export class BinaryExpression extends ParseTree {
   /**
    * @param {SourceRange} location
    * @param {ParseTree} left
@@ -345,21 +345,21 @@ export class BinaryOperator extends ParseTree {
    * @param {ParseTreeTransformer} transformer
    */
   transform(transformer) {
-    return transformer.transformBinaryOperator(this);
+    return transformer.transformBinaryExpression(this);
   }
 
   /**
    * @param {ParseTreeVisitor} visitor
    */
   visit(visitor) {
-    visitor.visitBinaryOperator(this);
+    visitor.visitBinaryExpression(this);
   }
 
   /**
    * @type {ParseTreeType}
    */
   get type() {
-    return BINARY_OPERATOR;
+    return BINARY_EXPRESSION;
   }
 }
 

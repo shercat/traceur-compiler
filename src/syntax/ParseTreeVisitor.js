@@ -65,7 +65,7 @@ export class ParseTreeVisitor {
   visitAwaitExpression(tree) {
     this.visitAny(tree.expression);
   }
-  visitBinaryOperator(tree) {
+  visitBinaryExpression(tree) {
     this.visitAny(tree.left);
     this.visitAny(tree.right);
   }

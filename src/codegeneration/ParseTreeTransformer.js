@@ -26,7 +26,7 @@ import {
   ArrowFunctionExpression,
   AssignmentElement,
   AwaitExpression,
-  BinaryOperator,
+  BinaryExpression,
   BindingElement,
   BindingIdentifier,
   Block,
@@ -206,13 +206,13 @@ export class ParseTreeTransformer {
     }
     return new AwaitExpression(tree.location, expression);
   }
-  transformBinaryOperator(tree) {
+  transformBinaryExpression(tree) {
     var left = this.transformAny(tree.left);
     var right = this.transformAny(tree.right);
     if (left === tree.left && right === tree.right) {
       return tree;
     }
-    return new BinaryOperator(tree.location, left, tree.operator, right);
+    return new BinaryExpression(tree.location, left, tree.operator, right);
   }
   transformBindingElement(tree) {
     var binding = this.transformAny(tree.binding);
